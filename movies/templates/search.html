@@ -1,0 +1,28 @@
+{%  load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search For Movies</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//bootswatch.com/superhero/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+ <h1>Welcome to Movie Search</h1>
+    <form method="GET" action="/search">
+        <div class="form-group">
+            <input class="form-control" type="text" name="query">
+        </div>
+        <input type="submit" class="btn-btn-default">
+        <br><br>
+        {% if search == True %}
+        <img src="{{ res.posterURL }}">
+        <br>
+        <h3>{{ res.title }} ({{ res.year }})</h3>
+        <h3>Imdb Rating: {{ res.imdbRating }}</h3>
+        {% endif %}
+</form>
+</div>
+</body>
+</html>

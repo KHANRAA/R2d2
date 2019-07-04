@@ -6,7 +6,7 @@ from urllib.parse import quote
 class Movie(models.Model):
     def getMovie(self, title):
         title=urllib.parse.quote(title)
-        request=urllib.request.Request("https://v2.sg.media-imdb.com/suggestion/a/aven.json")
+        request=urllib.request.Request("https://v2.sg.media-imdb.com/suggestion/a/"+title+"json")
         response=urllib.request.urlopen(request)
         json_string=response.read().decode('utf-8')
         moviedata = json.loads(json_string)
@@ -19,7 +19,7 @@ class Movie(models.Model):
                 res['year'] = i.get('y')
                 newid=i.get('id')
                 newid = urllib.parse.quote(newid)
-                request1 = urllib.request.Request("http://www.omdbapi.com/?i=tt4154756%apikey=PlzBanMe")
+                request1 = urllib.request.Request("http://www.omdbapi.com/?i=+newid+&apikey=PlzBanMe")
                 response1 = urllib.request.urlopen(request1)
                 json_string1 = response1.read().decode('utf-8')
                 moviedata1 = json.loads(json_string1)

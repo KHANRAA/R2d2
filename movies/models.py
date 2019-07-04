@@ -25,7 +25,7 @@ class Movie(models.Model):
                 moviedata1 = json.loads(json_string1)
                 self.res['imdbRating']=moviedata1.get('imdbRating')
                 self.res['poster']=moviedata1.get('Poster')
-                return self.res
+            return self.res
 
 
 
